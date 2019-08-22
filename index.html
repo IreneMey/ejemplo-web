@@ -1,0 +1,227 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale">
+
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+    <script type="text/javascript" src="carousel/libs/jquery/jquery.js"></script>
+    <script type="text/javascript" src="carousel/dist/jquery.jcarousel.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <link  href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="tema/jquery-ui.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="tema/jquery-ui.min.css">
+	<link rel="stylesheet" type="text/css" href="tema/jquery-iu.theme.min.css">
+
+	<title>Actividad Evaluable 2 Jquery</title>
+</head>
+
+<body>
+
+	<!-- FOTORAMA -->
+
+<div class="fotorama">
+  <img src="img/blackpink.jpg">
+  <img src="img/seventeen.jpg">
+  <img src="img/bts.jpg">
+</div>
+
+<!-- JS Carrusel -->
+
+<script>
+	(function($) {
+    $(function() {
+        $('.jcarousel').jcarousel();
+
+        $('.jcarousel-control-prev')
+            .on('jcarouselcontrol:active', function() {
+                $(this).removeClass('inactive');
+            })
+            .on('jcarouselcontrol:inactive', function() {
+                $(this).addClass('inactive');
+            })
+            .jcarouselControl({
+                target: '-=1'
+            });
+
+        $('.jcarousel-control-next')
+            .on('jcarouselcontrol:active', function() {
+                $(this).removeClass('inactive');
+            })
+            .on('jcarouselcontrol:inactive', function() {
+                $(this).addClass('inactive');
+            })
+            .jcarouselControl({
+                target: '+=1'
+            });
+
+        $('.jcarousel-pagination')
+            .on('jcarouselpagination:active', 'a', function() {
+                $(this).addClass('active');
+            })
+            .on('jcarouselpagination:inactive', 'a', function() {
+                $(this).removeClass('active');
+            })
+            .jcarouselPagination();
+    });
+})
+</script>
+
+<!-- Efectos aparición -->
+
+<script>
+  $( function() {
+    // run the currently selected effect
+    function runEffect() {
+      // get effect type from
+      var selectedEffect = $( "#effectTypes" ).val();
+ 
+      // Most effect types need no options passed by default
+      var options = {};
+      // some effects have required parameters
+      if ( selectedEffect === "scale" ) {
+        options = { percent: 50 };
+      } else if ( selectedEffect === "size" ) {
+        options = { to: { width: 280, height: 185 } };
+      }
+ 
+      // Run the effect
+      $( "#effect" ).show( selectedEffect, options, 500, callback );
+    };
+ 
+    //callback function to bring a hidden box back
+    function callback() {
+      setTimeout(function() {
+        $( "#effect:visible" ).removeAttr( "style" ).fadeOut();
+      }, 1000 );
+    };
+ 
+    // Set effect from select menu value
+    $( "#button" ).on( "click", function() {
+      runEffect();
+    });
+ 
+    $( "#effect" ).hide();
+  } );
+  </script>
+
+<!-- Efectos -->
+
+<div class="toggler">
+  <div id="effect" class="ui-widget-content ui-corner-all">
+    <h3 class="ui-widget-header ui-corner-all">K-Pop</h3>
+    <p>
+     K-pop (abreviación de Korean popular music, en inglés o música popular coreana en español), es un género musical que incluye diversos estilos como la música dance electrónica, hip hop, rap, rock, R&B, etc, y que se refiere específicamente a la música popular de Corea del Sur, debido a que Corea del Norte no posee una industria de música popular con influencia occidental.
+    </p>
+  </div>
+</div>
+ 
+<select name="effects" id="effectTypes">
+  <option value="blind">Blind</option>
+  <option value="bounce">Bounce</option>
+  <option value="clip">Clip</option>
+  <option value="drop">Drop</option>
+  <option value="explode">Explode</option>
+  <option value="fade">Fade</option>
+  <option value="fold">Fold</option>
+  <option value="highlight">Highlight</option>
+  <option value="puff">Puff</option>
+  <option value="pulsate">Pulsate</option>
+  <option value="scale">Scale</option>
+  <option value="shake">Shake</option>
+  <option value="size">Size</option>
+  <option value="slide">Slide</option>
+</select>
+ 
+<button id="button" class="ui-state-default ui-corner-all">Run Effect</button>
+
+<!-- Acordeón -->
+
+<div id="accordion">
+  <h3><strong>BLACKPINK</strong></h3>
+  <div>
+    <p>
+    <strong>Blackpink</strong> es un grupo femenino surcoreano formado por la empresa <strong>YG Entertainment</strong> en 2016. El grupo está formado por cuatro integrantes: Jisoo, Jennie, Rosé y Lisa. Debutaron el 8 de agosto de 2016 con el EP titulado <strong>Square One</strong>, en el que aparece "Whistle", su primera canción número uno en Corea del Sur, así como <strong>"Boombayah"</strong>, su primer éxito número uno en el <strong>Billboard World Digital Songs</strong>, que estableció un récord como el video musical de debut más visto por una banda coreana. Con el éxito comercial temprano del grupo, fueron aclamados como el Nuevo Artista del Año en los 31.º Golden Disc Awards y los 26.º Seoul Music Awards.</p><br>
+
+	<p>En 2018 Blackpink era el grupo femenino de K-pop con mayor puntuación en <strong>Billboard Hot 100</strong> y <strong>Billboard 200</strong>, alcanzando el número 55 con <strong>"Ddu-Du Ddu-Du"</strong>, y alcanzando el número 40 con Square Up, respectivamente. También son el primer y único grupo de chicas K-pop en ingresar y encabezar la lista de <strong>Artistas Emergentes de Billboard</strong>. También son el primer grupo femenino de K-pop que tiene cuatro sencillos número uno en la lista de ventas de canciones digitales mundiales de Billboard. En el momento de su lanzamiento, "Ddu-Du Ddu-Du" fue el video musical coreano más visto en las <em>primeras 24 horas en <strong>YouTube</strong></em>, y en enero de 2019, se convirtió en el video musical más visto por un grupo de K-pop en el sitio web. 
+    </p>
+  </div>
+
+  <h3><strong>SEVENTEEN</strong></h3>
+  <div>
+    <p>
+    <strong>Seventeen</strong>, también conocido como SVT, es un grupo musical surcoreano formado por <strong>Pledis Entertainment</strong> en el año 2015. El grupo consiste de 13 miembros divididos en tres sub-unidades, cada una con un área distinta de especialización: "Unidad de Hip Hop", "Unidad Vocal" y "Unidad de Performance". Seventeen ha lanzado dos álbumes de estudio y seis distintos EPs.</p><br> 
+
+	<p>Seventeen es considerado un grupo "autoproductor", debido a que los miembros están involucrados activamente en la composición de sus canciones y en otros aspectos de su grupo. 
+    </p>
+  </div>
+
+  <h3><strong>BTS</strong></h3>
+  <div>
+    <p>
+    <strong>BTS</strong> es una boy band surcoreana formada por <strong>Big Hit Entertainment</strong> en 2013. Está compuesta por siete integrantes: Jin, Suga, J-Hope, RM, Jimin, V y Jungkook. El grupo debutó el 13 de junio de 2013 con la canción <em>«No More Dream»</em>, incluida en su primer sencillo <strong>2 Cool 4 Skool</strong>, mientras que su estreno en Japón se produjo el 4 de junio de 2014 con la versión en japonés del mismo tema. El nombre de su club de fanes oficial es <strong>A.R.M.Y</strong>, acrónimo de <em>«Adorable Representative MC for Youth»</em>. 
+    </p>
+	</div>
+</div>
+
+<!-- JS Acordeón -->
+
+<script>
+  $( function() {
+    $( "#accordion" ).accordion();
+  } );
+  </script>
+
+<!-- JS PESTAÑAS -->
+
+<script>
+  $( function() {
+    $( "#tabs" ).tabs();
+  } );
+  </script>
+
+  <!-- PESTAÑAS -->
+
+  <div id="tabs">
+  <ul>
+    <li><a href="#tabs-1">BLACKPINK</a></li>
+    <li><a href="#tabs-2">SEVENTEEN</a></li>
+    <li><a href="#tabs-3">BTS</a></li>
+  </ul>
+  <div id="tabs-1">
+  	<h4>KILL THIS LOVE</h4>
+
+    <p><strong>Blackpink</strong> ha conseguido con su último hit en ser el vídeo más visto de <strong>Youtube</strong> en sus primeras <strong>24 horas</strong>. <em>Kill This Love</em> ha conseguido un total de 56,7 millones de reproducciones en su primer día en la plataforma, las chicas de <strong>BLACKPINK</strong> confirman su éxito a nivel mundial.</p>
+
+    <img src="img/kill-this-love.jpg" width="600">
+  </div>
+
+  <div id="tabs-2">
+  	<h4>HIT</h4>
+
+    <p>El nuevo sencillo digital <em>HIT</em> del grupo surcoreano, <strong>SEVENTEEN</strong>, se ha posicionado desde el pasado 5 de agosto en el primer lugar en las listas de canciones de K-pop de iTunes en 19 países, incluyendo a Estados Unidos, Australia, Canadá, España, Vietnam, Nueva Zelanda y más.</p>
+
+    <img src="img/hit-seventeen.jpg" width="600">
+  </div>
+
+  <div id="tabs-3">
+  	<h4>BTS WORLD</h4>
+
+    <p><strong>BTS World</strong> es el álbum de banda sonora para el juego móvil homónimo de <strong>Netmarble</strong>, interpretado por la boy band surcoreana <strong>BTS</strong>. Fue lanzado el 28 de junio de 2019. Cuenta con el sencillo principal <em>«Dream Glow»</em>, una colaboración con la cantante británica <strong>Charli XCX</strong>, que se lanzó el 7 de junio de 2019.4​5​ El segundo sencillo, <em>«A Brand New Day»</em> con la cantante sueca <strong>Zara Larsson</strong>, fue lanzado el 14 de junio.6​ El tercer sencillo, <em>«All Night»</em> con el rapero americano <strong>Juice Wrld</strong>, fue lanzado el 21 de junio</p>
+
+    <img src="img/bts-world.jpg" width="600">
+  </div>
+</div>
+
+</body>
+
+</html>
+
+<!-- ENLACES PARA IMÁGENES -->
+
+<!-- BLACKPINK: https://ygex.jp/blackpink/ -->
+<!-- SEVENTEEN: http://pledis.co.kr/html/artist/seventeen -->
+<!-- BTS: https://www.ibighit.com/bts/eng/ -->
